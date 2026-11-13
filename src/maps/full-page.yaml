@@ -6,8 +6,8 @@ type: map
 id: full-page
 config:
   mapStyle: "https://tiles.openfreemap.org/styles/positron"
-  center: [-73.9654, 40.7829]
-  zoom: 12.5
+  center: [-71, 41.1]
+  zoom: 8
 
 # Where the legend sits: top-left (default), top-right, bottom-left, bottom-right.
 legend:
@@ -17,63 +17,235 @@ layers:
   # Vector tiles from OpenFreeMap (free, no key): the same tiles the basemap
   # draws, here only their building shapes, in a colour of your own.
   # Starts switched off; tick it in the layer panel.
-  - id: buildings
-    type: fill
-    label: Buildings
-    visible: false
-    legend: false
-    source:
-      type: vector
-      url: "https://tiles.openfreemap.org/planet"
-    source-layer: building
-    minzoom: 13
-    paint:
-      fill-color: "#b2182b"
-      fill-opacity: 0.35
 
-  - id: bike-lanes
-    type: line
-    label: Bike lanes
-    source:
-      type: geojson
-      url: "/data/manhattan-bike-lanes.geojson"
-    paint:
-      line-color: "#2166ac"
-      line-width: 2
-    legend: { label: Bike lanes, color: "#2166ac", shape: line }
-    interactive:
-      hover:
-        cursor: pointer
-        popup:
-          - strong:
-              - property: street
-
-  - id: squirrels
+  - id: Rhode_Island_historic_sites
     type: circle
-    label: Squirrels by fur colour
+    label: Historic Sites
     source:
       type: geojson
-      url: "/data/squirrel20241021.geojson"
-    classify:
-      field: primary_fur_color
-      categories:
-        Gray: "#7a7a7a"
-        Cinnamon: "#c0642f"
-        Black: "#1f1f1f"
-      other: "#d4c9a8"
+      url: "/data/RI-HistoricSites.geojson"
     paint:
-      circle-radius: 4
+      circle-radius: 2
       circle-stroke-width: 1
-      circle-stroke-color: "#ffffff"
+      circle-stroke-color: "#FF0000"
+      circle-color: "#FF0000"
+      circle-opacity: 0.5
     interactive:
       hover:
         cursor: pointer
       click:
         popup:
           - h3:
-              - str: "Squirrel "
-              - property: unique_squirrel_id
+              - str: "Name: "
+              - property: NAME
+              - else: "(not recorded)"
           - p:
-              - str: "Fur: "
-              - property: primary_fur_color
-                else: "not recorded"
+              - str: "Town: "
+              - property: TOWN
+                else: "(not recorded)"
+
+  - id: Rhode_Island_historic_candidates
+    type: fill
+    label: Historic Candidates
+    source:
+      type: geojson
+      url: "/data/RI-HistoricCandidates.geojson"
+    paint:
+      fill-color: "#FF0000"
+      fill-opacity: 0.5
+    interactive:
+      hover:
+        cursor: pointer
+      click:
+        popup:
+          - h3:
+              - str: "Name: "
+              - property: SITENAME1
+              - else: "(not recorded)"
+
+  - id: Rhode_Island_historic_districts
+    type: fill
+    label: Historic Districts
+    source:
+      type: geojson
+      url: "/data/RI-HistoricDistricts.geojson"
+    paint:
+      fill-color: "#FF0000"
+      fill-opacity: 0.5
+    interactive:
+      hover:
+        cursor: pointer
+      click:
+        popup:
+          - h3:
+              - str: "Name: "
+              - property: NAME
+              - else: "(not recorded)"
+          - p:
+              - str: "Town: "
+              - property: TOWN
+                else: "(not recorded)"
+
+  - id: Turbines_2020
+    type: circle
+    label: 2020 Turbines
+    source:
+      type: geojson
+      url: "/data/CONSTRUCTION_BEGIN_2020.geojson"
+    paint:
+      circle-radius: 2
+      circle-stroke-width: 1
+      circle-stroke-color: "#0000FF"
+      circle-opacity: 0.75
+    interactive:
+      hover:
+        cursor: pointer
+      click:
+        popup:
+          - h3:
+              - str: "Project Name: "
+              - property: PROJECT_NAME
+          - p:
+              - str: "Operation Year: "
+              - property: COMMISSION_BEGIN
+                else: "(not recorded)"
+
+  - id: Turbines_2021
+    type: circle
+    label: 2021 Turbines
+    source:
+      type: geojson
+      url: "/data/CONSTRUCTION_BEGIN_2021.geojson"
+    paint:
+      circle-radius: 2
+      circle-stroke-width: 1
+      circle-stroke-color: "#0000FF"
+      circle-opacity: 0.75
+    interactive:
+      hover:
+        cursor: pointer
+      click:
+        popup:
+          - h3:
+              - str: "Project Name: "
+              - property: PROJECT_NAME
+          - p:
+              - str: "Operation Year: "
+              - property: COMMISSION_BEGIN
+                else: "(not recorded)"
+
+  - id: Turbines_2022
+    type: circle
+    label: 2022 Turbines
+    source:
+      type: geojson
+      url: "/data/CONSTRUCTION_BEGIN_2022.geojson"
+    paint:
+      circle-radius: 2
+      circle-stroke-width: 1
+      circle-stroke-color: "#0000FF"
+      circle-opacity: 0.75
+    interactive:
+      hover:
+        cursor: pointer
+      click:
+        popup:
+          - h3:
+              - str: "Project Name: "
+              - property: PROJECT_NAME
+          - p:
+              - str: "Operation Year: "
+              - property: COMMISSION_BEGIN
+                else: "(not recorded)"
+
+  - id: Turbines_2023
+    type: circle
+    label: 2023 Turbines
+    source:
+      type: geojson
+      url: "/data/CONSTRUCTION_BEGIN_2023.geojson"
+    paint:
+      circle-radius: 2
+      circle-stroke-width: 1
+      circle-stroke-color: "#0000FF"
+      circle-opacity: 0.75
+    interactive:
+      hover:
+        cursor: pointer
+      click:
+        popup:
+          - h3:
+              - str: "Project Name: "
+              - property: PROJECT_NAME
+          - p:
+              - str: "Operation Year: "
+              - property: COMMISSION_BEGIN
+                else: "(not recorded)"
+
+  - id: Turbines_2024
+    type: circle
+    label: 2024 Turbines
+    source:
+      type: geojson
+      url: "/data/CONSTRUCTION_BEGIN_2024.geojson"
+    paint:
+      circle-radius: 2
+      circle-stroke-width: 1
+      circle-stroke-color: "#0000FF"
+      circle-opacity: 0.75
+    interactive:
+      hover:
+        cursor: pointer
+      click:
+        popup:
+          - h3:
+              - str: "Project Name: "
+              - property: PROJECT_NAME
+          - p:
+              - str: "Operation Year: "
+              - property: COMMISSION_BEGIN
+                else: "(not recorded)"
+
+  - id: Turbines_2025
+    type: circle
+    label: 2025 Turbines
+    source:
+      type: geojson
+      url: "/data/CONSTRUCTION_BEGIN_2025.geojson"
+    paint:
+      circle-radius: 2
+      circle-stroke-width: 1
+      circle-stroke-color: "#0000FF"
+      circle-opacity: 0.75
+    interactive:
+      hover:
+        cursor: pointer
+      click:
+        popup:
+          - h3:
+              - str: "Project Name: "
+              - property: PROJECT_NAME
+          - p:
+              - str: "Operation Year: "
+              - property: COMMISSION_BEGIN
+                else: "(not recorded)"
+
+  - id: Turbines_2030
+    type: circle
+    label: 2030 Turbines
+    source:
+      type: geojson
+      url: "/data/CONSTRUCTION_BEGIN_NULL.geojson"
+    paint:
+      circle-radius: 2
+      circle-stroke-width: 1
+      circle-stroke-color: "#0000FF"
+      circle-opacity: 0.75
+    interactive:
+      hover:
+        cursor: pointer
+      click:
+        popup:
+          - h3:
+              - str: "Project Name: "
+              - property: PROJECT_NAME

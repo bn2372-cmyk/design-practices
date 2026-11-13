@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "CONSTRUCTION_BEGIN_2026",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"xy_coordinate_resolution": 1e-15,
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 285, "LEASE_NUMBER": "OCS-A 0501", "PROJECT_NAME": "New England Wind", "PROJECT_PHASE_NUMBER": "1", "DEVELOPER_NAME": "Avangrid Renewables, LLC", "WIND_TURBINE_ID": "AT-32", "MAX_HEIGHT_M": 357.0, "MAX_MW": null, "MAX_ROTOR_DIAMETER_M": 285, "WIND_TURBINE_MODEL": null, "DEPTH_M": null, "OPTION_NUMBER": null, "STATUS": "Approved for Construction", "CONSTRUCTION_BEGIN": 2026, "COMMISSION_BEGIN": 2027, "NOTES": null, "LONGITUDE_NAD83": -70.59342074, "LATITUDE_NAD83": 41.01853039, "Northing": 4542035.995, "Easting": 366025.9972, "UTM_ZONE": "19N", "is_spare": null }, "geometry": { "type": "Point", "coordinates": [ -70.59342074, 41.01853039 ] } }
+]
+}
